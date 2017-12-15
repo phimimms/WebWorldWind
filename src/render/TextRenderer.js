@@ -82,7 +82,7 @@ define([
                     return this._font;
                 },
                 set: function (value) {
-                    // TODO: Should this ve equivalent to WWA typeface?
+                    // TODO: Should this be equivalent to WWA typeface?
                     this._font = new Font(value);
                 }
             },
