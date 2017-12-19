@@ -113,7 +113,7 @@ define([
          * @param {Boolean} outline Indicates whether the text includes an outline, which increases its width and height.
          * @returns {Vec2} A vector indicating the text's width and height, respectively, in pixels.
          */
-        TextSupport.prototype.textSize = function (text, font) {
+        TextRenderer.prototype.textSize = function (text, font) {
             if (text.length === 0) {
                 return new Vec2(0, 0);
             }
@@ -136,7 +136,7 @@ define([
             return new Vec2(maxWidth, height);
         };
 
-        TextSupport.prototype.renderText = function (dc, text) {
+        TextRenderer.prototype.renderText = function (dc, text) {
             var gl = dc.currentGlContext,
                 ctx2D = this._ctx2D,
                 canvas2D = this._canvas2D,
@@ -182,13 +182,13 @@ define([
          * @param {Font} font The font to use.
          * @returns {Vec2} A vector indicating the text's width and height, respectively, in pixels based on the passed font.
          */
-        TextSupport.prototype.getMaxLineHeight = function(font)
+        TextRenderer.prototype.getMaxLineHeight = function(font)
         {
             // Check underscore + capital E with acute accent
             return this.textSize("_\u00c9", font, 0)[1];
         };
 
-        TextSupport.prototype.wrap = function(text, width, height, font)
+        TextRenderer.prototype.wrap = function(text, width, height, font)
         {
             if (!text) {
                 throw new ArgumentError(
@@ -254,7 +254,7 @@ define([
          * @param {Font} font The font to use.
          * @returns {String} The wrapped text.
          */
-        TextSupport.prototype.wrapLine = function(text, width, font)
+        TextRenderer.prototype.wrapLine = function(text, width, font)
         {
             var wrappedText = "";
 
